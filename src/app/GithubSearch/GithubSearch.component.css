@@ -1,0 +1,36 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card img {
+    width: 100%;
+    height: auto;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  
+  .card-info {
+    padding: 1rem;
+  }
+  
+  .card-info h2 {
+    margin: 0 0 1rem 0;
+  }
+  
+  .card-info p {
+    margin: 0 0 1rem 0;
+  }
+  
+  .card-info a {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+  }
