@@ -1,9 +1,22 @@
+<p> Aca puedes ver tu perfil en Github</p>
 
-<div class="card">
-  <img src="https://via.placeholder.com/150" alt="Placeholder Image">
-  <div class="card-info">
-    <h2>Titulo de la Tarjeta</h2>
-    <p>Descripción de la tarjeta.</p>
-    <a href="#">Botón</a>
-  </div>
-</div>
+
+    <div>
+      <input [(ngModel)]="query" (keyup.enter)="search()" placeholder="Buscar Usuario">
+      <div class="card-container">
+        <mat-card *ngFor="let user of users">
+          <img mat-card-image [src]="user.avatar_url" [alt]="user.login">
+          <mat-card-content >
+            <h2 mat-card-title>{{ user.login }}</h2>
+            <p mat-card-subtitle>{{ user.html_url }}</p>
+            <p>{{ user.bio }}</p>
+            <p><strong>Location:</strong> {{ user.location }}</p>
+            <p><strong>Twitter:</strong> @{{ user.twitter_username }}</p>
+            <p><strong>Blog:</strong> <a href="{{ user.following_url }}" target="_blank">{{ user.blog }}</a></p>
+            <p><strong>Public Repos:</strong> {{ user.public_repos }}</p>
+            <p><strong>Followers:</strong> {{ user.followers }}</p>
+            <p><strong>Following:</strong> {{ user.following_url }}</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>

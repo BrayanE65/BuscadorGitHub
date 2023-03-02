@@ -1,22 +1,17 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Octokit } from '@octokit/rest';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GithubService {
-  private apiUrl = 'https://api.github.com';
-  private apiKey = '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';
+  private octokit: Octokit;
 
-  constructor(private http: HttpClient) {}
+  constructor() {
+    this.octokit = new Octokit();
+  }
 
-  searchUsers(query: string): Observable<any> {
-    const url = `${this.apiUrl}/search/users?q=${query}`;
-    return this.http.get(url, {
-      headers: {
-        'Authorization': `Bearer ${this.apiKey}`
-      }
-    });
+  public searchUsers(query: string) {
+    return this.octokit.search.users({ q: query });
   }
 }

@@ -7,15 +7,14 @@ import { GithubService } from '../github.service';
   styleUrls : ['./GithubSearch.component.css']
 })
 export class GithubSearchComponent {
-  query!: string;
-  users!: any[];
+   query: string ;
+   users: any[] ; 
 
   constructor(private githubService: GithubService) {}
 
-  searchUsers() {
-    this.githubService.searchUsers(this.query)
-      .subscribe(response => {
-        this.users = response.items;
-      });
+  public search() {
+    this.githubService.searchUsers(this.query).then((response) => {
+      this.users = response.data.items;
+    });
   }
 }
